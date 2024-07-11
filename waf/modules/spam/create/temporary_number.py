@@ -17,17 +17,6 @@ options ={
   "LTYPE"  : [str(var.ltype[0]),'Choose list or create <list / create>']
 }
 
-def options(n):
-                        print ("")
-                        print ("")
-                        print ("    options ("+n+"):" )
-                        print ("")
-                        print ("        Name      Current Setting      Required      Description")
-                        print ("        NUMBER    "+str(var.number[0])+"          yes           The nember wihout {+}")
-                        print ("        LTYPE     "+var.ltype[0]+"                 yes           Choose list or create <list / create>")
-                        print ("" )
-                        print ("")
-                        print ("")
 
 def running():
         try:
@@ -66,7 +55,7 @@ def running():
                                         print ("|    Message       |  "+message)
                                         print ("|__________________|_________________________________________________________________________|")
                                         input('')
-                                        print (blue+"[*]"+default+"refrushe")
+                                        print (blue+"[*]"+default+"reload")
                         except :
                                         print("\n")
                                         print(red+"[-]"+default+"Unknown error")

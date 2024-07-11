@@ -59,6 +59,8 @@ def run_php_server(port):
 
 
     print(green+"[+]Web Panel Link : "+default+"http://localhost:{port}")
+    print(green+"[+]UserName : "+default+"admin")
+    print(green+"[+]Password : "+default+"admin")
     print(green+"\n[+] "+default+"Please Run NGROK On Port {port} AND Send Link To Target > "+yellow+f"ngrok http {port}\n"+Style.RESET_ALL)
 
 

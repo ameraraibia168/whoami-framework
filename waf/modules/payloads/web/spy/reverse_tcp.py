@@ -1,4 +1,3 @@
-from colorama import Fore,Back,Style
 import subprocess,json,time,hashlib
 import time,socket,os
 from waf.libs.color  import *
@@ -61,7 +60,7 @@ def run_php_server(port):
     print(green+"[+]Web Panel Link : "+default+"http://localhost:{port}")
     print(green+"[+]UserName : "+default+"admin")
     print(green+"[+]Password : "+default+"admin")
-    print(green+"\n[+] "+default+"Please Run NGROK On Port {port} AND Send Link To Target > "+yellow+f"ngrok http {port}\n"+Style.RESET_ALL)
+    print(green+"\n[+] "+default+"Please Run NGROK On Port {port} AND Send Link To Target > "+yellow+f"ngrok http {port}\n"+default)
 
 
 

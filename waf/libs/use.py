@@ -21,6 +21,10 @@ def use(module):
                     var.listpass[0] = whoami1[13:]
                     print ("LISTPASS => ", var.listpass[0])
 
+                elif  whoami1[:12] == "set wordlist" or  whoami1[:12] == "set WORDLIST" :
+                    var.wordlist[0] = whoami1[13:]
+                    print ("WORDLIST => ", var.wordlist[0])
+
                 elif  whoami1[:10] == "set rhosts" or  whoami1[:10] == "set RHOSTS" :
                     var.rhosts[0] = whoami1[11:]
                     print ("RHOSTS => ", var.rhosts[0])
@@ -68,6 +72,26 @@ def use(module):
                 elif  whoami1[:8] == "set mode" or  whoami1[:8] == "set MODE" :
                     var.mode[0] = whoami1[9:]
                     print ("MODE => ", var.mode[0])
+
+                elif  whoami1[:9] == "set essid" or  whoami1[:9] == "set ESSID" :
+                    var.essid[0] = whoami1[10:]
+                    print ("ESSID => ", var.essid[0])
+
+                elif  whoami1[:9] == "set bssid" or  whoami1[:9] == "set BSSID" :
+                    var.bssid[0] = whoami1[10:]
+                    print ("BSSID => ", var.bssid[0])
+
+                elif  whoami1[:11] == "set channel" or  whoami1[:11] == "set CHANNEL" :
+                    var.channel[0] = whoami1[12:]
+                    print ("CHANNEL => ", var.channel[0])
+
+                elif  whoami1[:8] == "set path" or  whoami1[:8] == "set PATH" :
+                    var.path[0] = whoami1[9:]
+                    print ("PATH => ", var.path[0])
+
+                elif  whoami1[:8] == "set dist" or  whoami1[:8] == "set DIST" :
+                    var.dist[0] = whoami1[9:]
+                    print ("DIST => ", var.dist[0])
 
                 elif  whoami1[:9] == "set lname" or  whoami1[:9] == "set LNAME" :
                     var.lname[0] = whoami1[10:]

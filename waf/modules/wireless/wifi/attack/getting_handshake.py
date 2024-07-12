@@ -26,7 +26,7 @@ def running():
                 print ("")
                 time.sleep(2)
                 print ("") 
-                order = "airodump-ng {} --bssid {} -c {} -w {} | xterm -e aireplay-ng -0 {} -a {} {}".format(var.interface[0],var.bssid[0],var.channel[0],var.path[0],var.dist[0],var.bssid[0],var.interface[0])
+                order = "airodump-ng {} --bssid {} -c {} -w {} & xterm -e aireplay-ng -0 {} -a {} {}".format(var.interface[0],var.bssid[0],var.channel[0],var.path[0],var.dist[0],var.bssid[0],var.interface[0])
                 geny = os.system(order)
                 print("\n")
                 print (green_underline+"[*] Done"+default)

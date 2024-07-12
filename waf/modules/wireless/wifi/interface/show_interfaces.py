@@ -4,7 +4,7 @@ from waf.libs import variable as var
 
 info = {
         "name"        : "show_interfaces",
-        "title"       : "show  list interfaces_available",
+        "title"       : "Show list interfaces_available",
         "module"      : "wireless/wifi/interface show network_manager",
         "description" : "it provides you with the service of displaying the available interfaces"
 }

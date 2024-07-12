@@ -23,17 +23,6 @@ options ={
   "SEARCH" : [str(var.Search[0]),'Keywords you want to search for']
 }
 
-def options(n):
-                        print ("")
-                        print ("")
-                        print ("    options ("+n+"):" )
-                        print ("")
-                        print ("        Name      Current Setting      Required      Description")
-                        print ("        APIKEY    "+str(var.Apikey[0])+"      yes           The SHODAN API key")
-                        print ("        SEARCH    "+str(var.Search[0])+"               yes           Keywords you want to search for")
-                        print ("")
-                        print ("")
-
 def shodan_search(search, apikey):
                                 if apikey:
                                         API_KEY = apikey

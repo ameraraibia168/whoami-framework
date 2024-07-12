@@ -61,6 +61,14 @@ def use(module):
                     var.lport[0] = whoami1[10:]
                     print ("LPORT => ", var.lport[0])
 
+                elif  whoami1[:13] == "set interface" or  whoami1[:13] == "set INTERFACE" :
+                    var.interface[0] = whoami1[14:]
+                    print ("INTERFACE => ", var.interface[0])
+
+                elif  whoami1[:8] == "set mode" or  whoami1[:8] == "set MODE" :
+                    var.mode[0] = whoami1[9:]
+                    print ("MODE => ", var.mode[0])
+
                 elif  whoami1[:9] == "set lname" or  whoami1[:9] == "set LNAME" :
                     var.lname[0] = whoami1[10:]
                     print ("LNAME => ", var.lname[0])

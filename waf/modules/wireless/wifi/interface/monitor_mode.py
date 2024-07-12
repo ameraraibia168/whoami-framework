@@ -4,7 +4,7 @@ from waf.libs import variable as var
 
 info = {
         "name"        : "monitor_mode",
-        "title"       : "[start/stop] monitor mode ",
+        "title"       : "[Start/Stop] monitor mode ",
         "module"      : "wireless/wifi/interface monitor_mode network_manager",
         "description" : "wireless wifi [start/stop] interface monitor mode"
 }

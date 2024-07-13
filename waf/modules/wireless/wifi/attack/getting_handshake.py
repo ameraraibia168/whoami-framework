@@ -10,11 +10,11 @@ info = {
 }
 
 options ={
-  "INTERFACE" : [str(var.interface[0]),'enter the interface [wlan0/wlan0mon]'],
-  "BSSID"     : [str(var.bssid[0]),'enter the bssid of the target'],
-  "CHANNEL"   : [str(var.channel[0]),'enter the channel of the network'],
-  "PATH"      : [str(var.path[0]),'enter the path of the output file'],
-  "DIST"      : [str(var.dist[0]),'enter the number of the packets [1-10000] ( 0 for unlimited number)']
+  "INTERFACE" : [str(var.all_var['interface']),'enter the interface [wlan0/wlan0mon]'],
+  "BSSID"     : [str(var.all_var['bssid']),'enter the bssid of the target'],
+  "CHANNEL"   : [str(var.all_var['channel']),'enter the channel of the network'],
+  "PATH"      : [str(var.all_var['path']),'enter the path of the output file'],
+  "DIST"      : [str(var.all_var['dist']),'enter the number of the packets [1-10000] ( 0 for unlimited number)']
 
 }
 
@@ -26,7 +26,7 @@ def running():
                 print ("")
                 time.sleep(2)
                 print ("") 
-                order = "airodump-ng {} --bssid {} -c {} -w {} & xterm -e aireplay-ng -0 {} -a {} {}".format(var.interface[0],var.bssid[0],var.channel[0],var.path[0],var.dist[0],var.bssid[0],var.interface[0])
+                order = "airodump-ng {} --bssid {} -c {} -w {} & xterm -e aireplay-ng -0 {} -a {} {}".format(var.all_var['interface'],var.all_var['bssid'],var.all_var['channel'],var.all_var['path'],var.all_var['dist'],var.all_var['bssid'],var.all_var['interface'])
                 geny = os.system(order)
                 print("\n")
                 print (green_underline+"[*] Done"+default)

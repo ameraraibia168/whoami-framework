@@ -10,17 +10,17 @@ info = {
         "description" : "Create a temporary phone number to receive messages"
 }
 
-var.ltype  = ['list']
+var.all_var['ltype']  = 'list'
 
 options ={
-  "NUMBER" : [str(var.number[0]),'The listen address'],
-  "LTYPE"  : [str(var.ltype[0]),'Choose list or create <list / create>']
+  "NUMBER" : [str(var.all_var['number']),'The listen address'],
+  "LTYPE"  : [str(var.all_var['ltype']),'Choose list or create <list / create>']
 }
 
 
 def running():
         try:
-                if var.ltype[0] == "list" or var.ltype[0] == "LIST" :
+                if var.all_var['ltype'] == "list" or var.all_var['ltype'] == "LIST" :
 
                         print (blue+"[*]"+default+"starting scan your number")
                         url_fake = "http://receivefreesms.net/"
@@ -32,11 +32,11 @@ def running():
                                 nm = div.a.text.strip('+')
                                 print (green+"[+]"+default+"the nember is : "+nm)
 
-                elif var.ltype[0] == "create" or var.ltype[0] == "CREATE":
+                elif var.all_var['ltype'] == "create" or var.all_var['ltype'] == "CREATE":
                         print (blue+"[*]"+default+"creating your number ")
                         try :
                                 while True:
-                                        url = "http://receivefreesms.net/free-sms-"+str(var.number[0])+".html"
+                                        url = "http://receivefreesms.net/free-sms-"+str(var.all_var['number'])+".html"
                                         re = requests.get(url,headers={"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"})
                                         soup2 = BeautifulSoup(re.content,"html.parser")
                                         fr = soup2.find("td",{"data-title":"From Number"})
@@ -46,7 +46,7 @@ def running():
                                         mess = soup2.find("td",{"data-title":"Message"})
                                         message = mess.text
                                         print (" ____________________________________________________________________________________________")
-                                        print ("|   set nember     |  +"+str(var.number[0]))
+                                        print ("|   set nember     |  +"+str(var.all_var['number']))
                                         print ("|__________________|_________________________________________________________________________|")
                                         print ("|   From Number    |  "+from_nember)
                                         print ("|__________________|_________________________________________________________________________|")

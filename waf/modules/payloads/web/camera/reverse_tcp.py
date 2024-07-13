@@ -73,7 +73,7 @@ $(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:
 sleep 8
 fi
 printf "\e[1;77m[\e[0m\e[1;33m+\e[0m\e[1;77m] Starting php server... (localhost:'''+var.all_var['lport']+''')\e[0m\n"
-fuser -k '''+var.all_var[lport']+'''/tcp > /dev/null 2>&1
+fuser -k '''+var.all_var['lport']+'''/tcp > /dev/null 2>&1
 php -S localhost:'''+var.all_var['lport']+''' > /dev/null 2>&1 &
 }
 start() {

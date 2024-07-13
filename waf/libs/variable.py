@@ -21,5 +21,6 @@ all_var ={
     'bssid'      : '00:00:00:00:00:00',
     'channel'    : '11',
     'path'       : 'capture.cap',
-    'dist'       : '0'
+    'dist'       : '0',
+    'file'       : 'file'
 }

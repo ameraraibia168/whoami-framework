@@ -10,8 +10,8 @@ info = {
 }
 
 options ={
-  "PATH"      : [str(var.path[0]),'enter the path of the handshake file'],
-  "WORDLIST"  : [str(var.wordlist[0]),'enter the path of the wordlist']
+  "PATH"      : [str(var.all_var['path']),'enter the path of the handshake file'],
+  "WORDLIST"  : [str(var.all_var['wordlist']),'enter the path of the wordlist']
 
 }
 
@@ -23,7 +23,7 @@ def running():
                 print ("")
                 time.sleep(2)
                 print ("") 
-                order = ("aircrack-ng {} -w {}").format(var.path[0],var.wordlist[0])
+                order = ("aircrack-ng {} -w {}").format(var.all_var['path'],var.all_var['wordlist'])
                 geny = os.system(order)
                 print("\n")
                 print (green_underline+"[*] Done"+default)

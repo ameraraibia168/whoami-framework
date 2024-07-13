@@ -10,27 +10,27 @@ info = {
 }
 
 options ={
-  "INTERFACE" : [str(var.interface[0]),'enter the interface [wlan0/wlan0mon]'],
-  "MODE"      : [str(var.mode[0]),'enter the mode [start/stop]']
+  "INTERFACE" : [str(var.all_var['interface']),'enter the interface [wlan0/wlan0mon]'],
+  "MODE"      : [str(var.all_var['mode']),'enter the mode [start/stop]']
 
 }
 
 def running():
         try:
-                if var.mode[0] == 'start' :
+                if var.all_var['mode'].lower() == 'start' :
                         print ("")
                         print (blue+"[*]"+default+ "Starting a monitor mode")
                         time.sleep(2)
                         print ("")
                         time.sleep(2)
                         print ("")
-                        order = "airmon-ng start {} && airmon-ng check kill".format(var.interface[0])
+                        order = "airmon-ng start {} && airmon-ng check kill".format(var.all_var['interface'])
                         geny  = os.system(order)
                         print("\n")
                         print (green_underline+"[*] Done"+default)
                         time.sleep(2)
                         print ("")
-                elif var.mode[0] == 'stop' :
+                elif var.all_var['mode'].lower() == 'stop' :
                         print ("")
                         print (blue+"[*]"+default+ "Stoping a monitor mode")
                         time.sleep(2)

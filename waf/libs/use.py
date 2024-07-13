@@ -32,7 +32,7 @@ def use(module):
             exec("from waf.modules."+str(module)+" import *;global option;option=options")
             if(len(option)!=0):
                 for i in option:
-                    print(("         {:10s}       {:30s}      {:s}").format(str(i),str(option[i][0]),str(option[i][1])))
+                    print(("         {:10s}       {:30s}      {:s}").format(str(i),str(var.all_var[str(i).lower()]),str(option[i][1])))
             else:
                 print("\n      NOTE : No options here,Enter run or exploit ")
             print("\n")

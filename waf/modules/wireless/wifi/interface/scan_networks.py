@@ -10,7 +10,7 @@ info = {
 }
 
 options ={
-  "INTERFACE" : [str(var.interface[0]),'enter the interface [wlan0/wlan0mon]']
+  "INTERFACE" : [str(var.all_var['interface']),'enter the interface [wlan0/wlan0mon]']
 
 }
 
@@ -22,7 +22,7 @@ def running():
                 print ("")
                 time.sleep(2)
                 print ("")
-                order = "airodump-ng {} -M".format(var.interface[0])
+                order = "airodump-ng {} -M".format(var.all_var['interface'])
                 print(red+"[-]"+default+"When Done Press CTRL+c")
                 cmd = os.system("sleep 3")
                 geny  = os.system(order)

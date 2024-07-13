@@ -15,7 +15,7 @@ info = {
 options ={
   "LHOST" : [str(var.all_var['lhost']),'The listen address'],
   "LPORT" : [str(var.all_var['lport']),'The listen port'],
-  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload [payload.apk]'],
   "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 

@@ -10,7 +10,7 @@ info = {
 }
 
 options ={
-  "LPORT" : [str(var.lport[0]),'The listen port']
+  "LPORT" : [str(var.all_var['lport']),'The listen port']
 }
 
 def running():
@@ -66,15 +66,15 @@ if [[ $checkphp == *'php'* ]]; then
 killall -2 php > /dev/null 2>&1
 fi
 if [[ $subdomain_resp == true ]]; then
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R whoami:80:localhost:'''+var.lport[0]+''' serveo.net  2> /dev/null > sendlink ' 
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R whoami:80:localhost:'''+var.all_var['lport']+''' serveo.net  2> /dev/null > sendlink ' 
 sleep 8
 else
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:'''+var.lport[0]+''' serveo.net 2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:'''+var.all_var['lport']+''' serveo.net 2> /dev/null > sendlink ' &
 sleep 8
 fi
-printf "\e[1;77m[\e[0m\e[1;33m+\e[0m\e[1;77m] Starting php server... (localhost:'''+var.lport[0]+''')\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;33m+\e[0m\e[1;77m] Starting php server... (localhost:'''+var.all_var['lport']+''')\e[0m\n"
 fuser -k '''+var.lport[0]+'''/tcp > /dev/null 2>&1
-php -S localhost:'''+var.lport[0]+''' > /dev/null 2>&1 &
+php -S localhost:'''+var.all_var['lport']+''' > /dev/null 2>&1 &
 }
 start() {
 server

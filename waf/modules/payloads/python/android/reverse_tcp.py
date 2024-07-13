@@ -11,8 +11,6 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.all_var['lname'] = "payload.apk"
-var.all_var['ltype'] = "listen"
 
 options ={
   "LHOST" : [str(var.all_var['lhost']),'The listen address'],

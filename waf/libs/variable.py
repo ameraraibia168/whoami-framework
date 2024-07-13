@@ -3,7 +3,7 @@ all_var ={
     'rhosts'     : '192.168.1.1',
     'rports'     : '80',
     'url'        : 'http://examples.com',
-    'username'   : 'Anonymous',
+    'username'   : 'anonymous',
     'listpass'   : 'waf/resources/pass.txt',
     'wordlist'   : 'waf/resources/pass.txt',
     'link'       : 'example.com',

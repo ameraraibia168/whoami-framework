@@ -167,9 +167,9 @@ class Client(object):
 
 def running():
         try:
-                if (var.all_var['ltype'] == "server" or var.all_var['ltype'] == "SERVER"):
+                if (var.all_var['ltype'].lower() == "server"):
                         Server()
-                elif (var.all_var['ltype'] == "client" or var.all_var['ltype'] == "CLIENT"):
+                elif (var.all_var['ltype'].lower() == "client"):
                         Client()
                 else :
                         print (red+"[-]"+default+"Choose LTYPE " )

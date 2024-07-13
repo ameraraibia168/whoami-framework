@@ -11,7 +11,7 @@ def calc(y):
   return num
 def sem():
         print (red + '   }--------------{+} programmer [Amerr] {+}----------------{'+default)
-        print (red + '   }--------{+} GitHub.com/Amerlaceset/WhoAmi {+}-----------{'+default)
+        print (red + '   }--------{+} GitHub.com/Ameraraibia168/WhoAmi {+}--------{'+default)
         print ("       =["+basic_yellow+" WhoAmi V {   2.1.2   }                       "+default+"]")
         print ("+ -- --=[ {:02d}  exploits - {:02d}  auxiliary - {:02d} network    ]".format(calc("exploits"),calc("auxiliary"),calc("network")))
         print ("+ -- --=[ {:02d}  payloads - {:02d}  wireless  - {:02d} spam       ]".format(calc("payloads"),calc("wireless"),calc("spam")))

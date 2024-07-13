@@ -10,16 +10,16 @@ info = {
 }
 
 options ={
-  "ip" : [str(var.ip[0]),'{Ip/Url} target']
+  "ip" : [str(var.all_var['ip']),'{Ip/Url} target']
 }
 
 def running():
         try:
                 print ('')
                 time.sleep(0.01)
-                print (light_blue +'[...] Searching for ' + basic_yellow + var.ip[0] )
+                print (light_blue +'[...] Searching for ' + basic_yellow + var.all_var['ip'] )
                 print ('')
-                request = requests.get('http://ip-api.com/json/'+var.ip[0])
+                request = requests.get('http://ip-api.com/json/'+var.all_var['ip'])
                 data = request.json()
                 print (green + 'Advanced Information')
                 print (basic_green + 'Lat           :      ' + white + str(data['lat']) )

@@ -10,8 +10,6 @@ info = {
         "description" : "Create a temporary phone number to receive messages"
 }
 
-var.all_var['ltype']  = 'list'
-
 options ={
   "NUMBER" : [str(var.all_var['number']),'The listen address'],
   "LTYPE"  : [str(var.all_var['ltype']),'Choose list or create <list / create>']
@@ -20,7 +18,7 @@ options ={
 
 def running():
         try:
-                if var.all_var['ltype'] == "list" or var.all_var['ltype'] == "LIST" :
+                if var.all_var['ltype'].lower() == "list" :
 
                         print (blue+"[*]"+default+"starting scan your number")
                         url_fake = "http://receivefreesms.net/"
@@ -32,7 +30,7 @@ def running():
                                 nm = div.a.text.strip('+')
                                 print (green+"[+]"+default+"the nember is : "+nm)
 
-                elif var.all_var['ltype'] == "create" or var.all_var['ltype'] == "CREATE":
+                elif var.all_var['ltype'].lower() == "create":
                         print (blue+"[*]"+default+"creating your number ")
                         try :
                                 while True:

@@ -9,8 +9,6 @@ info = {
         "description" : "Simple local chat"
 }
 
-var.all_var['ltype']= "server"
-
 options ={
   "LHOST" : [str(var.all_var['lhost']),'The listen address'],
   "LPORT" : [str(var.all_var['lport']),'The listen port'],

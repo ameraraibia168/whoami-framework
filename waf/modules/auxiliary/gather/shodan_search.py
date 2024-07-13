@@ -19,8 +19,8 @@ info = {
 }
 
 options ={
-  "APIKEY" : [str(var.Apikey[0]),'The SHODAN API key'],
-  "SEARCH" : [str(var.Search[0]),'Keywords you want to search for']
+  "APIKEY" : [str(var.all_var['apikey']),'The SHODAN API key'],
+  "SEARCH" : [str(var.all_var['search']),'Keywords you want to search for']
 }
 
 def shodan_search(search, apikey):
@@ -48,8 +48,8 @@ def shodan_search(search, apikey):
                                         print (red+'[-]'+default+'Shodan search error:', e)
 def running():
         try:
-                search = str(var.Search[0])
-                apikey = str(var.Apikey[0])
+                search = str(var.all_var['search'])
+                apikey = str(var.all_var['apikey'])
                 shodan_search(search, apikey)
 
         except Exception as e:

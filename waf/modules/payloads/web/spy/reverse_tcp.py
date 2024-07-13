@@ -11,7 +11,7 @@ info = {
 }
 
 options ={
-  "LPORT" : [str(var.lport[0]),'The listen port']
+  "LPORT" : [str(var.all_var['lport']),'The listen port']
 }
 
 
@@ -75,7 +75,7 @@ def running():
                         time.sleep(2)
                         print ("")
                         while True:
-                            run_php_server(var.lport[0])
+                            run_php_server(var.all_var['lport'])
                             try:
                                 input(blue+'[*]'+default+'If You Want Exit And Turn Off localhost / press enter or CTRL+C ')
                                 kill_php_proc()

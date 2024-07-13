@@ -11,13 +11,13 @@ info = {
 }
 
 options ={
-  "LINK" : [str(var.link[0]),'link web target']
+  "LINK" : [str(var.all_var['link']),'link web target']
 }
 
 def running():
         try:
                 f = open("waf/resources/link.txt","r");
-                link = var.link[0]
+                link = var.all_var['link']
                 print (blue+"[*]"+default+"starting the scanning")
                 print ("\n\nAvilable links : \n")
                 while True:

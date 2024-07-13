@@ -9,13 +9,10 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.all_var['lname'] = "payload.rb"
-var.all_var['ltype'] = "listen"
-
 options ={
   "LHOST" : [str(var.all_var['lhost']),'The listen address'],
   "LPORT" : [str(var.all_var['lport']),'The listen port'],
-  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload [payload.rb]'],
   "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 

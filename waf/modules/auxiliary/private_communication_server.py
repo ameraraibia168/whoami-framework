@@ -9,20 +9,20 @@ info = {
         "description" : "Simple local chat"
 }
 
-var.ltype[0]= "server"
+var.all_var['ltype']= "server"
 
 options ={
-  "LHOST" : [str(var.lhost[0]),'The listen address'],
-  "LPORT" : [str(var.lport[0]),'The listen port'],
-  "LTYPE" : [str(var.ltype[0]),'Choose server or connect <server / client>']
+  "LHOST" : [str(var.all_var['lhost']),'The listen address'],
+  "LPORT" : [str(var.all_var['lport']),'The listen port'],
+  "LTYPE" : [str(var.all_var['ltype']),'Choose server or connect <server / client>']
 }
 
 class Server(object):
      # List to keep track of socket descriptors
      CONNECTION_LIST = []
      RECV_BUFFER = 4096  # Advisable to keep it as an exponent of 2
-     PORT = int(var.lport[0])
-     HOST= str(var.lhost[0])
+     PORT = int(var.all_var['lport'])
+     HOST = str(var.all_var['lhost'])
      def __init__(self):
         self.user_name_dict = {}
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -124,8 +124,8 @@ def prompt():
 
 class Client(object):
     def __init__(self):
-        self.host = str(var.lhost[0])
-        self.port = int(var.lport[0])
+        self.host = str(var.all_var['lhost'])
+        self.port = int(var.all_var['lport'])
         self.sock = None
         self.connect_to_server()
 
@@ -167,9 +167,9 @@ class Client(object):
 
 def running():
         try:
-                if (var.ltype[0] == "server" or var.ltype[0] == "SERVER"):
+                if (var.all_var['ltype'] == "server" or var.all_var['ltype'] == "SERVER"):
                         Server()
-                elif (var.ltype[0] == "client" or var.ltype[0] == "CLIENT"):
+                elif (var.all_var['ltype'] == "client" or var.all_var['ltype'] == "CLIENT"):
                         Client()
                 else :
                         print (red+"[-]"+default+"Choose LTYPE " )

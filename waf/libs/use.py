@@ -9,101 +9,21 @@ def use(module):
     try:
         exec("from waf.modules."+str(module)+" import *")
         whoami1 = str(input(default+'WhoAmi '+str(module[:number_folder_name(module)])+'('+red+str(module[number_folder_name(module)+1:])+default+') > '))
-        if whoami1[:3] =='set':
+        if whoami1[:3] =='set' or whoami1[:4] == 'set ':
             if whoami1 == "set" or whoami1 == "set ":
                 print (" set Name current_setting")
             else :
-                if  whoami1[:8] == "set file" or  whoami1[:8] == "set FILE" :
-                    var.file[0] = whoami1[9:]
-                    print ("FILE => ", var.file[0])
-
-                elif  whoami1[:12] == "set listpass" or  whoami1[:12] == "set LISTPASS" :
-                    var.listpass[0] = whoami1[13:]
-                    print ("LISTPASS => ", var.listpass[0])
-
-                elif  whoami1[:12] == "set wordlist" or  whoami1[:12] == "set WORDLIST" :
-                    var.wordlist[0] = whoami1[13:]
-                    print ("WORDLIST => ", var.wordlist[0])
-
-                elif  whoami1[:10] == "set rhosts" or  whoami1[:10] == "set RHOSTS" :
-                    var.rhosts[0] = whoami1[11:]
-                    print ("RHOSTS => ", var.rhosts[0])
-
-                elif  whoami1[:10] == "set rports" or  whoami1[:10] == "set RPORTS" :
-                    var.rports[0] = whoami1[11:]
-                    print ("RPORTS => ", var.rports[0])
-
-                elif  whoami1[:12] == "set username" or  whoami1[:12] == "set USERNAME" :
-                    var.username[0] = whoami1[13:]
-                    print ("USERNAME => ", var.username[0])
-
-                elif  whoami1[:8] == "set link" or  whoami1[:8] == "set LINK" :
-                    var.link[0] = whoami1[9:]
-                    print ("LINK => ", var.link[0])
-
-                elif  whoami1[:7] == "set url" or  whoami1[:7] == "set url" :
-                    var.url[0] = whoami1[8:]
-                    print ("URL => ", var.url[0])
-                elif  whoami1[:10] == "set apikey" or  whoami1[:10] == "set APIKEY" :
-                    var.Apikey[0] = whoami1[11:]
-                    print ("APIKEY => ", var.Apikey[0])
-
-                elif  whoami1[:10] == "set search" or  whoami1[:10] == "set SEARCH" :
-                    var.Search[0] = whoami1[11:]
-                    print ("SEARCH => ", var.Search[0])
-
-                elif  whoami1[:9] == "set ltype" or  whoami1[:9] == "set Ltype" :
-                    var.ltype[0] = whoami1[10:]
-                    print ("LTYPE => ", var.ltype[0])
-
-
-                elif  whoami1[:9] == "set lhost" or  whoami1[:9] == "set LHOST" :
-                    var.lhost[0] = whoami1[10:]
-                    print ("LHOST => ", var.lhost[0])
-
-                elif  whoami1[:9] == "set lport" or  whoami1[:9] == "set LPORT" :
-                    var.lport[0] = whoami1[10:]
-                    print ("LPORT => ", var.lport[0])
-
-                elif  whoami1[:13] == "set interface" or  whoami1[:13] == "set INTERFACE" :
-                    var.interface[0] = whoami1[14:]
-                    print ("INTERFACE => ", var.interface[0])
-
-                elif  whoami1[:8] == "set mode" or  whoami1[:8] == "set MODE" :
-                    var.mode[0] = whoami1[9:]
-                    print ("MODE => ", var.mode[0])
-
-                elif  whoami1[:9] == "set essid" or  whoami1[:9] == "set ESSID" :
-                    var.essid[0] = whoami1[10:]
-                    print ("ESSID => ", var.essid[0])
-
-                elif  whoami1[:9] == "set bssid" or  whoami1[:9] == "set BSSID" :
-                    var.bssid[0] = whoami1[10:]
-                    print ("BSSID => ", var.bssid[0])
-
-                elif  whoami1[:11] == "set channel" or  whoami1[:11] == "set CHANNEL" :
-                    var.channel[0] = whoami1[12:]
-                    print ("CHANNEL => ", var.channel[0])
-
-                elif  whoami1[:8] == "set path" or  whoami1[:8] == "set PATH" :
-                    var.path[0] = whoami1[9:]
-                    print ("PATH => ", var.path[0])
-
-                elif  whoami1[:8] == "set dist" or  whoami1[:8] == "set DIST" :
-                    var.dist[0] = whoami1[9:]
-                    print ("DIST => ", var.dist[0])
-
-                elif  whoami1[:9] == "set lname" or  whoami1[:9] == "set LNAME" :
-                    var.lname[0] = whoami1[10:]
-                    print ("LNAME => ", var.lname[0])
-
-                elif  whoami1[:6] == "set ip" or  whoami1[:6] == "set IP" :
-                    var.ip[0] = whoami1[7:]
-                    print ("IP => ", var.ip[0])
-
-                elif  whoami1[:10] == "set number" or  whoami1[:10] == "set NUMBER" :
-                    var.number[0] = whoami1[11:]
-                    print ("NUMBER => ", var.number[0])
+                numm = 0
+                for i in whoami1[4:]:
+                    if i != ' ':
+                        numm = numm + 1
+                    else:
+                        break
+                if  whoami1[4:4+numm].lower() in var.all_var:
+                    var.all_var[whoami1[4:4+numm].lower()] = whoami1[5+numm:]
+                    print (whoami1[4:4+numm].upper()+" => "+ var.all_var[whoami1[4:4+numm].lower()])
+                else:
+                    print (red+"[-]"+default+" Unknown Variable")
 
         elif whoami1[:12] == "show options" or whoami1[:7] == "options":
             print ("\n")

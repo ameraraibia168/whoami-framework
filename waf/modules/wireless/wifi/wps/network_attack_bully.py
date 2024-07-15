@@ -27,7 +27,7 @@ def running():
                 order =  ("bully -b {} -c {} --pixiewps {}").format(var.all_var['bssid'],var.all_var['channel'],var.all_var['interface'])
                 geny = os.system(order)
                 print("\n")
-                print (green_underline+"[*] Done"+default)
+                print (green_underline+"[+] Done"+default)
                 time.sleep(2)
                 print ("")
         except Exception as e:

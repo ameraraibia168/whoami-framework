@@ -24,5 +24,7 @@ all_var ={
     'dist'       : '0',
     'file'       : 'file',
     'bhaddr'     : '',
-    'size'       : '600'
+    'size'       : '600',
+    'output'     : 'output',
+    'encrypt'    : 'unencrypted'
 }

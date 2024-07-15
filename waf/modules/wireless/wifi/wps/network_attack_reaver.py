@@ -26,7 +26,7 @@ def running():
                 order =  ("reaver -i {} -b {} -vv").format(var.all_var['interface'],var.all_var['bssid'])
                 geny = os.system(order)
                 print("\n")
-                print (green_underline+"[*] Done"+default)
+                print (green_underline+"[+] Done"+default)
                 time.sleep(2)
                 print ("")
         except Exception as e:

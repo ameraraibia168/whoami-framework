@@ -29,7 +29,7 @@ def running():
                 order = "airodump-ng {} --bssid {} -c {} -w {} & xterm -e aireplay-ng -0 {} -a {} {}".format(var.all_var['interface'],var.all_var['bssid'],var.all_var['channel'],var.all_var['path'],var.all_var['dist'],var.all_var['bssid'],var.all_var['interface'])
                 geny = os.system(order)
                 print("\n")
-                print (green_underline+"[*] Done"+default)
+                print (green_underline+"[+] Done"+default)
                 time.sleep(2)
                 print ("")
         except Exception as e:

@@ -29,7 +29,7 @@ def running():
                 geny = os.system(order)
                 time.sleep(5)
                 print("\n")
-                print (green_underline+"[*] Done"+default)
+                print (green_underline+"[+] Done"+default)
                 time.sleep(2)
                 print ("")
         except Exception as e:

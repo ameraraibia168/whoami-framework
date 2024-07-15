@@ -14,9 +14,9 @@ def running():
         try:
                 print ("")
                 time.sleep(2)
-                print (default+'  {'+blue+'Amerlaceset'+default+'}--------{'+blue+'https://github.com/Amerlaceset'+default+'}')
+                print (default+'  {'+blue+'Amerlaceset'+default+'}--------{'+blue+'https://github.com/ameraraibia168'+default+'}')
                 time.sleep(6)
-                webbrowser.open_new('https://github.com/Amerlaceset')
-                os.system('termux-open https://github.com/Amerlaceset')
+                webbrowser.open_new('https://github.com/ameraraibia168')
+                os.system('termux-open https://github.com/ameraraibia168')
         except Exception as e:
                 print(red+"\n[-]"+default+"Error : "+str(e))

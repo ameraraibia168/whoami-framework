@@ -22,5 +22,7 @@ all_var ={
     'channel'    : '11',
     'path'       : 'capture.cap',
     'dist'       : '0',
-    'file'       : 'file'
+    'file'       : 'file',
+    'bhaddr'     : '',
+    'size'       : '600'
 }

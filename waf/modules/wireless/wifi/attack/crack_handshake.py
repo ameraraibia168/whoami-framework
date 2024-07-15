@@ -26,7 +26,7 @@ def running():
                 order = ("aircrack-ng {} -w {}").format(var.all_var['path'],var.all_var['wordlist'])
                 geny = os.system(order)
                 print("\n")
-                print (green_underline+"[*] Done"+default)
+                print (green_underline+"[+] Done"+default)
                 time.sleep(2)
                 print ("")
         except Exception as e:

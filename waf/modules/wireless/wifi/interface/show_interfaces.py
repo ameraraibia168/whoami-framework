@@ -23,7 +23,7 @@ def running():
                 order = "netstat -i"
                 geny  = os.system(order)
                 print("")
-                print (green_underline+"[*] Done"+default)
+                print (green_underline+"[+] Done"+default)
                 time.sleep(2)        
                 print ("")
         except Exception as e:

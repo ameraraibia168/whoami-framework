@@ -40,7 +40,7 @@ def running():
                         order = "airmon-ng stop {} && service network-manager restart".format(var.interface[0])
                         geny  = os.system(order)
                         print("\n")
-                        print (green_underline+"[*] Done"+default)
+                        print (green_underline+"[+] Done"+default)
                         time.sleep(2)
                         print ("")
         except Exception as e:

@@ -14,6 +14,7 @@ rlcompleter
 threading   
 StringIO 
 httplib  
+pwn
 re
 json
 logging

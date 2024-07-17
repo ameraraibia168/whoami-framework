@@ -373,7 +373,7 @@ def running():
                         time.sleep(2)
                         build(str(var.all_var['lhost']),str(var.all_var['lport']),str(var.all_var['lname']))
 
-                elif var.all_var['ltype'].lower == "listen":
+                elif var.all_var['ltype'].lower() == "listen":
                         get_shell(str(var.all_var['lhost']),int(var.all_var['lport']))
 
                 else:

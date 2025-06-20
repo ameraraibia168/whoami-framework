@@ -87,7 +87,8 @@ end start
                         f.close()
 
                 elif var.all_var['ltype'].lower() == "listen":
-                        os.system("nc -l -p "+str(var.all_var['lport'])+" -v")
+                        from waf.libs import listen
+                        listen.run()
 
                 else:
                         print (red+"[-]"+default+"Choose LTYPE " )
